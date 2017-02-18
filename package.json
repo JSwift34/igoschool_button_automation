@@ -1,0 +1,27 @@
+{
+  "name": "igoschool_btn_automation",
+  "version": "1.0.0",
+  "description": "Clicks on buttons based on success of solving go problem.",
+  "main": "button_automation_user_script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSwift34/igoschool_button_automation.git"
+  },
+  "keywords": [
+    "igoschool",
+    "go"
+  ],
+  "author": "J Swift",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/JSwift34/igoschool_button_automation/issues"
+  },
+  "homepage": "https://github.com/JSwift34/igoschool_button_automation#readme",
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-crockford": "^1.0.0"
+  }
+}
