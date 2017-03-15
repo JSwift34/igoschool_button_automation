@@ -6,7 +6,7 @@
 // @match       https://internetgoschool.com/auth/problems/*
 // @include     http://internetgoschool.com/auth/problems/*
 // @include     https://internetgoschool.com/auth/problems/*
-// @version     1.1
+// @version     1.1.1
 // @author      Jonathan Swift
 // @encoding utf-8
 // @license MPL 2.0
