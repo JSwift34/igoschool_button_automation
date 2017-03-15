@@ -6,7 +6,7 @@
 // @match       https://internetgoschool.com/auth/problems/*
 // @include     http://internetgoschool.com/auth/problems/*
 // @include     https://internetgoschool.com/auth/problems/*
-// @version     1
+// @version     1.1
 // @author      Jonathan Swift
 // @encoding utf-8
 // @license MPL 2.0
@@ -49,7 +49,7 @@ $(function () {
         cfg = $.cookie('button_automation', JSON.parse) || default_cfg,
         cfg_dialog,
         $controls_holder = $('#discuss'),
-        $content_holder = $('#sb-site'),
+        $content_holder = $('#igs-body'),
         got_it_btn_id = '#got_it',
         not_yet_btn_id = '#not_yet',
         next_problem_btn_id = '#cram',
