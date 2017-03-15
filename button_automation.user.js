@@ -59,6 +59,8 @@ $(function () {
         restart_btn_id = '#restart',
         forgotten_problem_btn_id = '#forgotten';
 
+    function noop() {}
+
     function dataFocus() {
         return $('[data-focus]').toArray();
     }
@@ -104,24 +106,26 @@ $(function () {
     }
 
     function clickHandler() {
-        var status = $('#probstatus').attr('class'),
-            sub_timeout;
-        clearTimeout(sub_timeout);
-
-        if (status === 'wrong') {
-            done_without_mistake = false;
-            mistakes += 1;
-            made_mistake = true;
-        }
-
-        if (status === 'correct') {
-            sub_timeout = setTimeout(function () {
-                var btn_id = next_step_btn_resolver[studyType()](made_mistake, done_without_mistake, clicks);
-                $(btn_id).click();
-                done_without_mistake = true;
-            }, waitIntervalBeforeSubmit(made_mistake, done_without_mistake, countCommentWords()));
-        }
+        clearTimeout(clickHandler.timeout);
+        clickHandler[$('#probstatus').attr('class')]();
     }
+
+    clickHandler.undefined = noop;
+    clickHandler.timeout = 1;
+
+    clickHandler.wrong = function () {
+        done_without_mistake = false;
+        mistakes += 1;
+        made_mistake = true;
+    };
+
+    clickHandler.correct = function () {
+        this.timeout = setTimeout(function () {
+            var btn_id = next_step_btn_resolver[studyType()](made_mistake, done_without_mistake, clicks);
+            $(btn_id).click();
+            done_without_mistake = true;
+        }, waitIntervalBeforeSubmit(made_mistake, done_without_mistake, countCommentWords()));
+    };
 
     function storeConfig(cfg) {
         $.cookie('button_automation',
